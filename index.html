@@ -7,7 +7,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" crossorigin="anonymous"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-@font-face{font-family:'Share Tech Mono';font-style:normal;font-weight:400;src:local('Share Tech Mono')}
 :root{
   --bg:#0d0d0f;
   --surface:#13131a;
@@ -22,41 +21,20 @@
 }
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.7;overflow-x:hidden}
-
-/* scanline overlay */
-body::before{
-  content:'';position:fixed;inset:0;pointer-events:none;z-index:999;
-  background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px);
-}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:998;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px)}
 
 /* NAV */
-nav{
-  position:fixed;top:0;width:100%;background:rgba(13,13,15,0.85);
-  backdrop-filter:blur(12px);border-bottom:1px solid var(--border);
-  display:flex;justify-content:space-between;align-items:center;
-  padding:1rem 2rem;z-index:100;
-}
+nav{position:fixed;top:0;width:100%;background:rgba(13,13,15,0.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;z-index:100}
 .nav-logo{font-family:var(--mono);color:var(--teal);font-size:1rem;letter-spacing:2px}
 .nav-links{display:flex;gap:2rem;list-style:none}
 .nav-links a{color:var(--muted);text-decoration:none;font-size:0.85rem;letter-spacing:1px;transition:color .2s}
 .nav-links a:hover{color:var(--teal)}
 
 /* HERO */
-#hero{
-  min-height:100vh;display:flex;flex-direction:column;justify-content:center;
-  padding:8rem 2rem 4rem;max-width:900px;margin:0 auto;
-}
 .hero-tag{font-family:var(--mono);color:var(--teal);font-size:0.8rem;letter-spacing:3px;margin-bottom:1rem}
-.hero-name{
-  font-size:clamp(3rem,8vw,6rem);font-weight:600;line-height:1.05;
-  position:relative;display:inline-block;
-}
-.hero-name span{color:var(--teal)}
+.hero-name{font-size:clamp(3rem,8vw,6rem);font-weight:600;line-height:1.05;position:relative;display:inline-block}
 .glitch{position:relative;display:inline-block}
-.glitch::before,.glitch::after{
-  content:attr(data-text);position:absolute;top:0;left:0;width:100%;
-  font-size:inherit;font-weight:inherit;color:inherit;
-}
+.glitch::before,.glitch::after{content:attr(data-text);position:absolute;top:0;left:0;width:100%;font-size:inherit;font-weight:inherit;color:inherit}
 .glitch::before{color:var(--amber);clip-path:polygon(0 0,100% 0,100% 35%,0 35%);animation:glitch1 3s infinite}
 .glitch::after{color:var(--teal);clip-path:polygon(0 65%,100% 65%,100% 100%,0 100%);animation:glitch2 3s infinite}
 @keyframes glitch1{0%,90%{transform:translate(0)}91%{transform:translate(-3px,1px)}93%{transform:translate(3px,-1px)}95%{transform:translate(0)}}
@@ -64,10 +42,7 @@ nav{
 .hero-tagline{font-size:1.15rem;color:var(--muted);margin-top:1.5rem;max-width:500px}
 .hero-tagline em{color:var(--amber);font-style:normal}
 .hero-cta{display:flex;gap:1rem;margin-top:2.5rem;flex-wrap:wrap}
-.btn{
-  font-family:var(--mono);font-size:0.8rem;letter-spacing:2px;
-  padding:.75rem 1.75rem;border-radius:4px;cursor:pointer;text-decoration:none;transition:all .2s;
-}
+.btn{font-family:var(--mono);font-size:0.8rem;letter-spacing:2px;padding:.75rem 1.75rem;border-radius:4px;cursor:pointer;text-decoration:none;transition:all .2s}
 .btn-primary{background:var(--teal);color:#0d0d0f;border:none}
 .btn-primary:hover{background:#00ffcc;transform:translateY(-2px)}
 .btn-secondary{background:transparent;color:var(--teal);border:1px solid var(--teal)}
@@ -75,11 +50,10 @@ nav{
 .scroll-hint{font-family:var(--mono);color:var(--muted);font-size:0.7rem;letter-spacing:2px;margin-top:4rem;display:flex;align-items:center;gap:.5rem}
 .scroll-hint::after{content:'';display:block;width:40px;height:1px;background:var(--muted)}
 
-/* SECTION COMMON */
+/* SECTIONS */
 section{padding:6rem 2rem;max-width:900px;margin:0 auto}
 .section-label{font-family:var(--mono);color:var(--teal);font-size:0.75rem;letter-spacing:3px;margin-bottom:.5rem}
 .section-title{font-size:2rem;font-weight:600;margin-bottom:3rem;color:var(--text)}
-.divider{width:40px;height:2px;background:var(--teal);margin:1rem 0 3rem}
 
 /* ABOUT */
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
@@ -93,10 +67,7 @@ section{padding:6rem 2rem;max-width:900px;margin:0 auto}
 
 /* WORK */
 .work-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
-.work-card{
-  background:var(--card);border:1px solid var(--border);border-radius:8px;
-  overflow:hidden;transition:all .3s;cursor:pointer;
-}
+.work-card{background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:all .3s}
 .work-card:hover{border-color:var(--teal);transform:translateY(-4px)}
 .work-thumb{height:160px;display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative;overflow:hidden}
 .work-thumb.t1{background:linear-gradient(135deg,#1a1a2e,#16213e)}
@@ -108,17 +79,16 @@ section{padding:6rem 2rem;max-width:900px;margin:0 auto}
 .t2 .pixel-art{color:#7fff00}
 .t3 .pixel-art{color:var(--amber)}
 .t4 .pixel-art{color:#cc88ff}
-.work-tag{
-  position:absolute;top:10px;right:10px;font-family:var(--mono);font-size:0.6rem;
-  letter-spacing:1px;background:rgba(0,0,0,0.6);color:var(--muted);
-  padding:.25rem .5rem;border-radius:3px;border:1px solid var(--border);
-}
+.work-tag{position:absolute;top:10px;right:10px;font-family:var(--mono);font-size:0.6rem;letter-spacing:1px;background:rgba(0,0,0,0.6);color:var(--muted);padding:.25rem .5rem;border-radius:3px;border:1px solid var(--border)}
 .work-info{padding:1.25rem}
 .work-title{font-weight:600;font-size:1rem;margin-bottom:.5rem}
 .work-desc{font-size:0.85rem;color:var(--muted);line-height:1.6}
 .work-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
 .tag{font-family:var(--mono);font-size:0.65rem;letter-spacing:1px;padding:.2rem .6rem;border-radius:3px;border:1px solid;color:var(--teal);border-color:rgba(0,229,176,0.3);background:rgba(0,229,176,0.05)}
 .tag.amber{color:var(--amber);border-color:rgba(245,166,35,0.3);background:rgba(245,166,35,0.05)}
+
+/* AD CARDS */
+.ad-card{cursor:zoom-in}
 
 /* SKILLS */
 .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem}
@@ -129,25 +99,23 @@ section{padding:6rem 2rem;max-width:900px;margin:0 auto}
 
 /* CONTACT */
 .contact-inner{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:3rem;text-align:center;position:relative;overflow:hidden}
-.contact-inner::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(circle at 50% 0%,rgba(0,229,176,0.06),transparent 60%);
-  pointer-events:none;
-}
+.contact-inner::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(0,229,176,0.06),transparent 60%);pointer-events:none}
 .contact-email{font-family:var(--mono);font-size:1.5rem;color:var(--teal);margin:1.5rem 0}
 .contact-links{display:flex;justify-content:center;gap:1.5rem;margin-top:2rem;flex-wrap:wrap}
-.contact-link{
-  font-family:var(--mono);font-size:0.75rem;letter-spacing:2px;color:var(--muted);
-  text-decoration:none;padding:.6rem 1.25rem;border:1px solid var(--border);
-  border-radius:4px;transition:all .2s;
-}
+.contact-link{font-family:var(--mono);font-size:0.75rem;letter-spacing:2px;color:var(--muted);text-decoration:none;padding:.6rem 1.25rem;border:1px solid var(--border);border-radius:4px;transition:all .2s}
 .contact-link:hover{color:var(--teal);border-color:var(--teal)}
+
+/* LIGHTBOX */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:1000;align-items:center;justify-content:center;padding:1.5rem;cursor:zoom-out}
+.lightbox.active{display:flex}
+.lightbox img{max-width:90vw;max-height:90vh;object-fit:contain;border-radius:6px;box-shadow:0 0 60px rgba(0,0,0,0.8)}
+.lightbox-close{position:fixed;top:1.25rem;right:1.5rem;font-family:var(--mono);font-size:1.5rem;color:var(--muted);cursor:pointer;line-height:1;transition:color .2s;z-index:1001}
+.lightbox-close:hover{color:var(--teal)}
 
 /* FOOTER */
 footer{border-top:1px solid var(--border);padding:2rem;text-align:center;font-family:var(--mono);font-size:0.7rem;color:var(--muted);letter-spacing:1px}
 footer span{color:var(--teal)}
 
-/* RESPONSIVE */
 @media(max-width:640px){
   .about-grid{grid-template-columns:1fr}
   nav{padding:.75rem 1rem}
@@ -155,12 +123,17 @@ footer span{color:var(--teal)}
   section{padding:4rem 1.25rem}
 }
 
-/* cursor blink */
 .cursor{display:inline-block;width:3px;height:1.1em;background:var(--teal);vertical-align:middle;margin-left:4px;animation:blink 1s step-end infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
 </style>
 </head>
 <body>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <span class="lightbox-close" onclick="closeLightbox()">✕</span>
+  <img id="lightbox-img" src="" alt="Ad Preview"/>
+</div>
 
 <nav>
   <div class="nav-logo">T.DEV<span class="cursor"></span></div>
@@ -168,21 +141,19 @@ footer span{color:var(--teal)}
     <li><a href="#about">about</a></li>
     <li><a href="#work">work</a></li>
     <li><a href="#skills">skills</a></li>
+    <li><a href="#ads">ads</a></li>
     <li><a href="#contact">contact</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
-<section id="hero" style="padding-top:8rem">
+<section id="hero" style="min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-top:8rem">
   <div class="hero-tag">// multimedia arts &amp; creative design</div>
   <h1 class="hero-name">
     <span class="glitch" data-text="Tristan">Tristan</span><br>
     <span style="color:var(--amber)">Reyes</span>
   </h1>
-  <p class="hero-tagline">
-    I build <em>visuals that hit</em> and experiences that stick —<br>
-    from pixel to polygon, concept to screen.
-  </p>
+  <p class="hero-tagline">I build <em>visuals that hit</em> and experiences that stick —<br>from pixel to polygon, concept to screen.</p>
   <div class="hero-cta">
     <a href="#work" class="btn btn-primary">View Work</a>
     <a href="#contact" class="btn btn-secondary">Get in Touch</a>
@@ -201,18 +172,9 @@ footer span{color:var(--teal)}
       <p>Currently open to <strong>remote creative and design roles</strong> worldwide — let's make something worth looking at.</p>
     </div>
     <div class="stat-list">
-      <div class="stat-item">
-        <div class="stat-val">2024</div>
-        <div class="stat-lbl">MMA Graduate</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-val">PH → 🌐</div>
-        <div class="stat-lbl">Based in Marikina · Remote Ready</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-val">∞</div>
-        <div class="stat-lbl">Creative Projects in Progress</div>
-      </div>
+      <div class="stat-item"><div class="stat-val">2025</div><div class="stat-lbl">MMA Graduate</div></div>
+      <div class="stat-item"><div class="stat-val">PH → 🌐</div><div class="stat-lbl">Based in Marikina · Remote Ready</div></div>
+      <div class="stat-item"><div class="stat-val">∞</div><div class="stat-lbl">Creative Projects in Progress</div></div>
     </div>
   </div>
 </section>
@@ -222,6 +184,7 @@ footer span{color:var(--teal)}
   <div class="section-label">// 02 — selected work</div>
   <h2 class="section-title">Things I've made</h2>
   <div class="work-grid">
+
     <div class="work-card">
       <div class="work-thumb" style="height:auto;padding:0;overflow:hidden">
         <img src="https://stanby23.github.io/tristanreyes.github.io/kapatagan-preview.png" alt="Kapatagan Brews Preview" style="width:100%;height:auto;display:block"/>
@@ -268,58 +231,18 @@ footer span{color:var(--teal)}
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- SKILLS -->
-<section id="skills">
-  <div class="section-label">// 03 — skills</div>
-  <h2 class="section-title">What I work with</h2>
-  <div class="skills-grid">
-    <div class="skill-group">
-      <div class="skill-group-title">Design</div>
-      <div class="skill-chips">
-        <span class="chip">Figma</span>
-        <span class="chip">Adobe XD</span>
-        <span class="chip">UI/UX</span>
-        <span class="chip">Wireframing</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <div class="skill-group-title">Visual</div>
-      <div class="skill-chips">
-        <span class="chip">Photoshop</span>
-        <span class="chip">Illustrator</span>
-        <span class="chip">Procreate</span>
-        <span class="chip">Canva</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <div class="skill-group-title">Motion</div>
-      <div class="skill-chips">
-        <span class="chip">After Effects</span>
-        <span class="chip">Premiere Pro</span>
-        <span class="chip">Kinetic Type</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <div class="skill-group-title">Other</div>
-      <div class="skill-chips">
-                <span class="chip">Content Creation</span>
-        <span class="chip">Admin</span>
-        <span class="chip">Data Entry</span>
-      </div>
-    </div>
   </div>
 </section>
 
 <!-- ADS -->
 <section id="ads">
-  <div class="section-label">// 04 — ad portfolio</div>
+  <div class="section-label">// 03 — ad portfolio</div>
   <h2 class="section-title">Static Ad Concepts</h2>
-  <p style="color:var(--muted);margin-top:-2rem;margin-bottom:2.5rem;font-size:0.95rem">Spec ads created to demonstrate Meta-ready static ad design across different industries.</p>
+  <p style="color:var(--muted);margin-top:-2rem;margin-bottom:2.5rem;font-size:0.95rem">Spec ads created to demonstrate Meta-ready static ad design across different industries. Click any ad to view full size.</p>
   <div class="work-grid">
-    <div class="work-card">
+
+    <div class="work-card ad-card" onclick="openLightbox('https://stanby23.github.io/tristanreyes.github.io/grove-roasters.png')">
       <div class="work-thumb" style="height:auto;padding:0;overflow:hidden">
         <img src="https://stanby23.github.io/tristanreyes.github.io/grove-roasters.png" alt="Grove Roasters Ad" style="width:100%;height:auto;display:block"/>
       </div>
@@ -327,14 +250,12 @@ footer span{color:var(--teal)}
         <div class="work-title">Grove Roasters</div>
         <div class="work-desc">A clean, lifestyle-driven static ad for a coffee subscription brand. Warm tones, minimal copy, strong CTA.</div>
         <div class="work-tags">
-          <span class="tag">Meta Ad</span>
-          <span class="tag">Static</span>
-          <span class="tag amber">F&amp;B</span>
+          <span class="tag">Meta Ad</span><span class="tag">Static</span><span class="tag amber">F&amp;B</span>
         </div>
       </div>
     </div>
 
-    <div class="work-card">
+    <div class="work-card ad-card" onclick="openLightbox('https://stanby23.github.io/tristanreyes.github.io/Fitness-ad.png')">
       <div class="work-thumb" style="height:auto;padding:0;overflow:hidden">
         <img src="https://stanby23.github.io/tristanreyes.github.io/Fitness-ad.png" alt="Fitness App Ad" style="width:100%;height:auto;display:block"/>
       </div>
@@ -342,14 +263,12 @@ footer span{color:var(--teal)}
         <div class="work-title">Fitness App</div>
         <div class="work-desc">A high-energy static ad for a fitness app. Bold typography, motion blur effect, and a strong download CTA.</div>
         <div class="work-tags">
-          <span class="tag">Meta Ad</span>
-          <span class="tag">Static</span>
-          <span class="tag amber">Health</span>
+          <span class="tag">Meta Ad</span><span class="tag">Static</span><span class="tag amber">Health</span>
         </div>
       </div>
     </div>
 
-    <div class="work-card">
+    <div class="work-card ad-card" onclick="openLightbox('https://stanby23.github.io/tristanreyes.github.io/saas-meta-ad.png')">
       <div class="work-thumb" style="height:auto;padding:0;overflow:hidden">
         <img src="https://stanby23.github.io/tristanreyes.github.io/saas-meta-ad.png" alt="SaaS Meta Ad" style="width:100%;height:auto;display:block"/>
       </div>
@@ -357,10 +276,41 @@ footer span{color:var(--teal)}
         <div class="work-title">DataFlow — SaaS Ad</div>
         <div class="work-desc">A clean, data-driven static ad for a SaaS analytics platform. Light layout, product mockup, and a clear free trial CTA.</div>
         <div class="work-tags">
-          <span class="tag">Meta Ad</span>
-          <span class="tag">Static</span>
-          <span class="tag amber">SaaS</span>
+          <span class="tag">Meta Ad</span><span class="tag">Static</span><span class="tag amber">SaaS</span>
         </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">// 04 — skills</div>
+  <h2 class="section-title">What I work with</h2>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <div class="skill-group-title">Design</div>
+      <div class="skill-chips">
+        <span class="chip">Figma</span><span class="chip">Adobe XD</span><span class="chip">UI/UX</span><span class="chip">Wireframing</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Visual</div>
+      <div class="skill-chips">
+        <span class="chip">Photoshop</span><span class="chip">Illustrator</span><span class="chip">Procreate</span><span class="chip">Canva</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Motion</div>
+      <div class="skill-chips">
+        <span class="chip">After Effects</span><span class="chip">Premiere Pro</span><span class="chip">Kinetic Type</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Other</div>
+      <div class="skill-chips">
+        <span class="chip">Content Creation</span><span class="chip">Admin</span><span class="chip">Data Entry</span>
       </div>
     </div>
   </div>
@@ -384,6 +334,21 @@ footer span{color:var(--teal)}
 <footer>
   <p>Designed &amp; built by <span>Tristan Reyes</span> · 2025 · Marikina, PH</p>
 </footer>
+
+<script>
+function openLightbox(src){
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('active');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape') closeLightbox();
+});
+</script>
 
 </body>
 </html>
