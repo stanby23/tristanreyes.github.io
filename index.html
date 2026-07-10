@@ -8,31 +8,22 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --bg:#0d0d0f;
-  --surface:#13131a;
-  --card:#1a1a26;
-  --border:#2a2a40;
-  --teal:#00e5b0;
-  --amber:#f5a623;
-  --text:#e8e8f0;
-  --muted:#7070a0;
-  --mono:'Share Tech Mono',monospace;
-  --sans:'Inter',sans-serif;
+  --bg:#0d0d0f;--surface:#13131a;--card:#1a1a26;--border:#2a2a40;
+  --teal:#00e5b0;--amber:#f5a623;--text:#e8e8f0;--muted:#7070a0;
+  --mono:'Share Tech Mono',monospace;--sans:'Inter',sans-serif;
 }
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.7;overflow-x:hidden}
 body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:998;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px)}
 
-/* NAV */
 nav{position:fixed;top:0;width:100%;background:rgba(13,13,15,0.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;z-index:100}
 .nav-logo{font-family:var(--mono);color:var(--teal);font-size:1rem;letter-spacing:2px}
-.nav-links{display:flex;gap:2rem;list-style:none}
-.nav-links a{color:var(--muted);text-decoration:none;font-size:0.85rem;letter-spacing:1px;transition:color .2s}
+.nav-links{display:flex;gap:1.5rem;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:0.8rem;letter-spacing:1px;transition:color .2s}
 .nav-links a:hover{color:var(--teal)}
 
-/* HERO */
 .hero-tag{font-family:var(--mono);color:var(--teal);font-size:0.8rem;letter-spacing:3px;margin-bottom:1rem}
-.hero-name{font-size:clamp(3rem,8vw,6rem);font-weight:600;line-height:1.05;position:relative;display:inline-block}
+.hero-name{font-size:clamp(3rem,8vw,6rem);font-weight:600;line-height:1.05}
 .glitch{position:relative;display:inline-block}
 .glitch::before,.glitch::after{content:attr(data-text);position:absolute;top:0;left:0;width:100%;font-size:inherit;font-weight:inherit;color:inherit}
 .glitch::before{color:var(--amber);clip-path:polygon(0 0,100% 0,100% 35%,0 35%);animation:glitch1 3s infinite}
@@ -50,12 +41,10 @@ nav{position:fixed;top:0;width:100%;background:rgba(13,13,15,0.85);backdrop-filt
 .scroll-hint{font-family:var(--mono);color:var(--muted);font-size:0.7rem;letter-spacing:2px;margin-top:4rem;display:flex;align-items:center;gap:.5rem}
 .scroll-hint::after{content:'';display:block;width:40px;height:1px;background:var(--muted)}
 
-/* SECTIONS */
 section{padding:6rem 2rem;max-width:900px;margin:0 auto}
 .section-label{font-family:var(--mono);color:var(--teal);font-size:0.75rem;letter-spacing:3px;margin-bottom:.5rem}
 .section-title{font-size:2rem;font-weight:600;margin-bottom:3rem;color:var(--text)}
 
-/* ABOUT */
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
 .about-bio{font-size:1rem;color:var(--muted);line-height:1.9}
 .about-bio p{margin-bottom:1rem}
@@ -65,39 +54,34 @@ section{padding:6rem 2rem;max-width:900px;margin:0 auto}
 .stat-val{font-family:var(--mono);font-size:1.5rem;color:var(--teal)}
 .stat-lbl{font-size:0.75rem;color:var(--muted);letter-spacing:1px;margin-top:.25rem}
 
-/* WORK */
 .work-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
 .work-card{background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:all .3s}
 .work-card:hover{border-color:var(--teal);transform:translateY(-4px)}
-.work-thumb{height:160px;display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative;overflow:hidden}
-.work-thumb.t1{background:linear-gradient(135deg,#1a1a2e,#16213e)}
-.work-thumb.t2{background:linear-gradient(135deg,#1a2e1a,#0d2b0d)}
-.work-thumb.t3{background:linear-gradient(135deg,#2e1a1a,#2b0d0d)}
-.work-thumb.t4{background:linear-gradient(135deg,#1a1a2e,#2e1a2e)}
+.ad-card{cursor:zoom-in}
+.work-thumb{height:160px;display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative;overflow:hidden;flex-direction:column;gap:.5rem}
+.t1{background:linear-gradient(135deg,#1a1a2e,#16213e)}
+.t2{background:linear-gradient(135deg,#1a2e1a,#0d2b0d)}
+.t3{background:linear-gradient(135deg,#2e1a1a,#2b0d0d)}
+.t4{background:linear-gradient(135deg,#1a1a2e,#2e1a2e)}
 .pixel-art{image-rendering:pixelated;font-size:2.5rem;filter:drop-shadow(0 0 8px currentColor)}
-.t1 .pixel-art{color:var(--teal)}
-.t2 .pixel-art{color:#7fff00}
-.t3 .pixel-art{color:var(--amber)}
-.t4 .pixel-art{color:#cc88ff}
+.t1 .pixel-art{color:var(--teal)}.t2 .pixel-art{color:#7fff00}.t3 .pixel-art{color:var(--amber)}.t4 .pixel-art{color:#cc88ff}
 .work-tag{position:absolute;top:10px;right:10px;font-family:var(--mono);font-size:0.6rem;letter-spacing:1px;background:rgba(0,0,0,0.6);color:var(--muted);padding:.25rem .5rem;border-radius:3px;border:1px solid var(--border)}
-.work-info{padding:1.25rem}
-.work-title{font-weight:600;font-size:1rem;margin-bottom:.5rem}
-.work-desc{font-size:0.85rem;color:var(--muted);line-height:1.6}
-.work-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+.work-info{padding:1rem}
+.work-title{font-weight:600;font-size:0.95rem;margin-bottom:.4rem}
+.work-desc{font-size:0.82rem;color:var(--muted);line-height:1.6}
+.work-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.75rem}
 .tag{font-family:var(--mono);font-size:0.65rem;letter-spacing:1px;padding:.2rem .6rem;border-radius:3px;border:1px solid;color:var(--teal);border-color:rgba(0,229,176,0.3);background:rgba(0,229,176,0.05)}
 .tag.amber{color:var(--amber);border-color:rgba(245,166,35,0.3);background:rgba(245,166,35,0.05)}
+.meta{margin-top:.75rem;font-size:0.75rem;color:var(--muted)}
+.meta div{margin-bottom:.3rem}
+.meta span{color:var(--amber)}
 
-/* AD CARDS */
-.ad-card{cursor:zoom-in}
-
-/* SKILLS */
 .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem}
 .skill-group{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1.25rem}
 .skill-group-title{font-family:var(--mono);font-size:0.7rem;letter-spacing:2px;color:var(--amber);margin-bottom:1rem}
 .skill-chips{display:flex;flex-wrap:wrap;gap:.5rem}
 .chip{font-size:0.8rem;padding:.3rem .75rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:20px;color:var(--text)}
 
-/* CONTACT */
 .contact-inner{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:3rem;text-align:center;position:relative;overflow:hidden}
 .contact-inner::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(0,229,176,0.06),transparent 60%);pointer-events:none}
 .contact-email{font-family:var(--mono);font-size:1.5rem;color:var(--teal);margin:1.5rem 0}
@@ -105,23 +89,16 @@ section{padding:6rem 2rem;max-width:900px;margin:0 auto}
 .contact-link{font-family:var(--mono);font-size:0.75rem;letter-spacing:2px;color:var(--muted);text-decoration:none;padding:.6rem 1.25rem;border:1px solid var(--border);border-radius:4px;transition:all .2s}
 .contact-link:hover{color:var(--teal);border-color:var(--teal)}
 
-/* LIGHTBOX */
 .lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:1000;align-items:center;justify-content:center;padding:1.5rem;cursor:zoom-out}
 .lightbox.active{display:flex}
-.lightbox img{max-width:90vw;max-height:90vh;object-fit:contain;border-radius:6px;box-shadow:0 0 60px rgba(0,0,0,0.8)}
-.lightbox-close{position:fixed;top:1.25rem;right:1.5rem;font-family:var(--mono);font-size:1.5rem;color:var(--muted);cursor:pointer;line-height:1;transition:color .2s;z-index:1001}
+.lightbox img{max-width:90vw;max-height:90vh;object-fit:contain;border-radius:6px}
+.lightbox-close{position:fixed;top:1.25rem;right:1.5rem;font-family:var(--mono);font-size:1.5rem;color:var(--muted);cursor:pointer;z-index:1001;transition:color .2s}
 .lightbox-close:hover{color:var(--teal)}
 
-/* FOOTER */
 footer{border-top:1px solid var(--border);padding:2rem;text-align:center;font-family:var(--mono);font-size:0.7rem;color:var(--muted);letter-spacing:1px}
 footer span{color:var(--teal)}
 
-@media(max-width:640px){
-  .about-grid{grid-template-columns:1fr}
-  nav{padding:.75rem 1rem}
-  .nav-links{gap:1rem}
-  section{padding:4rem 1.25rem}
-}
+@media(max-width:640px){.about-grid{grid-template-columns:1fr}nav{padding:.75rem 1rem}.nav-links{gap:1rem}section{padding:4rem 1.25rem}}
 
 .cursor{display:inline-block;width:3px;height:1.1em;background:var(--teal);vertical-align:middle;margin-left:4px;animation:blink 1s step-end infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
@@ -129,10 +106,9 @@ footer span{color:var(--teal)}
 </head>
 <body>
 
-<!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
   <span class="lightbox-close" onclick="closeLightbox()">✕</span>
-  <img id="lightbox-img" src="" alt="Ad Preview"/>
+  <img id="lightbox-img" src="" alt="Preview"/>
 </div>
 
 <nav>
@@ -187,50 +163,45 @@ footer span{color:var(--teal)}
   <h2 class="section-title">Apps I've Designed</h2>
   <div class="work-grid">
 
+    <!-- Kapatagan Brews -->
     <div class="work-card">
-      <div class="work-thumb" style="height:auto;padding:0;overflow:hidden">
-        <img src="https://stanby23.github.io/tristanreyes.github.io/kapatagan-preview.png" alt="Kapatagan Brews Preview" style="width:100%;height:auto;display:block"/>
+      <div style="overflow:hidden">
+        <img src="https://stanby23.github.io/tristanreyes.github.io/kapatagan-preview.png" alt="Kapatagan Brews" style="width:100%;height:auto;display:block"/>
       </div>
-      <div class="work-info" style="padding:1rem">
-        <div class="work-title" style="font-size:0.9rem">Kapatagan Brews — Mobile App UI</div>
-        <div class="work-desc" style="font-size:0.8rem;margin-top:.35rem">A mobile app for a Filipino farm-to-cup coffee brand. Shop for locally grown beans and learn about the farmers and regions behind each product.</div>
-        <div style="margin-top:.75rem;font-size:0.75rem;color:var(--muted)">
-          <div style="margin-bottom:.3rem"><span style="color:var(--amber)">Role:</span> UI Designer</div>
-          <div style="margin-bottom:.3rem"><span style="color:var(--amber)">Tools:</span> Figma</div>
-          <div style="margin-bottom:.3rem"><span style="color:var(--amber)">Problem:</span> Filipino farm-grown coffee lacks a platform that both sells and educates</div>
-          <div><span style="color:var(--amber)">Output:</span> Home, Shop, Product Detail, Learn, Cart</div>
+      <div class="work-info">
+        <div class="work-title">Kapatagan Brews — Mobile App UI</div>
+        <div class="work-desc">A mobile app for a Filipino farm-to-cup coffee brand. Shop for locally grown beans and learn about the farmers and regions behind each product.</div>
+        <div class="meta">
+          <div><span>Role:</span> UI Designer</div>
+          <div><span>Tools:</span> Figma</div>
+          <div><span>Problem:</span> Filipino farm-grown coffee lacks a platform that both sells and educates</div>
+          <div><span>Output:</span> Home, Shop, Product Detail, Learn, Cart</div>
         </div>
-        <div class="work-tags" style="margin-top:.75rem">
-          <span class="tag">Figma</span>
-          <span class="tag">Mobile UI</span>
-          <span class="tag">E-commerce</span>
-          <span class="tag amber">Case Study</span>
+        <div class="work-tags">
+          <span class="tag">Figma</span><span class="tag">Mobile UI</span><span class="tag">E-commerce</span><span class="tag amber">Case Study</span>
         </div>
         <a href="https://www.figma.com/proto/e02D6xQ0HOqTzG4oZAxAph/Kapatagan-Brews_Group-10--Copy-?node-id=0-1&t=Yigj2sOsMhp8ZKYQ-1" target="_blank" class="btn btn-secondary" style="display:inline-block;margin-top:.75rem;font-size:0.65rem;padding:.4rem 1rem">View Prototype ↗</a>
       </div>
     </div>
 
+    <!-- Kickster -->
     <div class="work-card">
-      <div class="work-thumb t3" style="flex-direction:column;gap:.5rem">
-        <span class="pixel-art">▲</span>
-        <span style="font-family:var(--mono);font-size:0.65rem;color:var(--amber);letter-spacing:2px">IN PROGRESS</span>
-        <span class="work-tag">Branding</span>
+      <div style="overflow:hidden">
+        <img src="https://stanby23.github.io/tristanreyes.github.io/kicksterpreview.png" alt="Kickster" style="width:100%;height:auto;display:block"/>
       </div>
       <div class="work-info">
-        <div class="work-title">Tala — Streetwear Brand Identity</div>
-        <div class="work-desc">Full brand identity system for Tala, a Filipino streetwear label inspired by stars, night skies, and urban culture. Designed for a young, local audience that wants fashion with meaning.</div>
-        <div style="margin-top:1rem;font-size:0.8rem;color:var(--muted)">
-          <div style="margin-bottom:.4rem"><span style="color:var(--amber)">Role:</span> Brand Designer</div>
-          <div style="margin-bottom:.4rem"><span style="color:var(--amber)">Tools:</span> Illustrator, Canva</div>
-          <div style="margin-bottom:.4rem"><span style="color:var(--amber)">Problem:</span> Local streetwear brands lack a cohesive, professional visual identity</div>
-          <div><span style="color:var(--amber)">Output:</span> Logo, color palette, typography, brand guide, mockups</div>
+        <div class="work-title">Kickster — Sneaker App UI</div>
+        <div class="work-desc">Browse and order the latest kicks, or customize colorways to build your own unique pair before checkout.</div>
+        <div class="meta">
+          <div><span>Role:</span> UI Designer</div>
+          <div><span>Tools:</span> Figma</div>
+          <div><span>Problem:</span> Sneaker shoppers want to visualize custom colorways before buying</div>
+          <div><span>Output:</span> Home, Browse, Product Detail, Color Customizer, Cart</div>
         </div>
-        <div class="work-tags" style="margin-top:1rem">
-          <span class="tag">Illustrator</span>
-          <span class="tag">Canva</span>
-          <span class="tag">Brand Design</span>
-          <span class="tag amber">Identity</span>
+        <div class="work-tags">
+          <span class="tag">Figma</span><span class="tag">Mobile UI</span><span class="tag">E-commerce</span><span class="tag amber">Case Study</span>
         </div>
+        <a href="https://www.figma.com/design/aVcnQP0141fddoAN1KaALZ/Kickster-UI?node-id=0-1&t=Q3QPL5MoVVnjUz7c-1" target="_blank" class="btn btn-secondary" style="display:inline-block;margin-top:.75rem;font-size:0.65rem;padding:.4rem 1rem">View Design ↗</a>
       </div>
     </div>
 
@@ -245,41 +216,29 @@ footer span{color:var(--teal)}
   <div class="work-grid">
 
     <div class="work-card ad-card" onclick="openLightbox('https://stanby23.github.io/tristanreyes.github.io/grove-roasters.png')">
-      <div class="work-thumb" style="height:auto;padding:0;overflow:hidden">
-        <img src="https://stanby23.github.io/tristanreyes.github.io/grove-roasters.png" alt="Grove Roasters Ad" style="width:100%;height:auto;display:block"/>
-      </div>
+      <div style="overflow:hidden"><img src="https://stanby23.github.io/tristanreyes.github.io/grove-roasters.png" alt="Grove Roasters Ad" style="width:100%;height:auto;display:block"/></div>
       <div class="work-info">
         <div class="work-title">Grove Roasters</div>
-        <div class="work-desc">A clean, lifestyle-driven static ad for a coffee subscription brand. Warm tones, minimal copy, strong CTA.</div>
-        <div class="work-tags">
-          <span class="tag">Meta Ad</span><span class="tag">Static</span><span class="tag amber">F&amp;B</span>
-        </div>
+        <div class="work-desc">Lifestyle-driven static ad for a coffee subscription brand. Warm tones, minimal copy, strong CTA.</div>
+        <div class="work-tags"><span class="tag">Meta Ad</span><span class="tag">Static</span><span class="tag amber">F&amp;B</span></div>
       </div>
     </div>
 
     <div class="work-card ad-card" onclick="openLightbox('https://stanby23.github.io/tristanreyes.github.io/Fitness-ad.png')">
-      <div class="work-thumb" style="height:auto;padding:0;overflow:hidden">
-        <img src="https://stanby23.github.io/tristanreyes.github.io/Fitness-ad.png" alt="Fitness App Ad" style="width:100%;height:auto;display:block"/>
-      </div>
+      <div style="overflow:hidden"><img src="https://stanby23.github.io/tristanreyes.github.io/Fitness-ad.png" alt="Fitness App Ad" style="width:100%;height:auto;display:block"/></div>
       <div class="work-info">
         <div class="work-title">Fitness App</div>
-        <div class="work-desc">A high-energy static ad for a fitness app. Bold typography, motion blur effect, and a strong download CTA.</div>
-        <div class="work-tags">
-          <span class="tag">Meta Ad</span><span class="tag">Static</span><span class="tag amber">Health</span>
-        </div>
+        <div class="work-desc">High-energy static ad with bold typography, motion blur effect, and a strong download CTA.</div>
+        <div class="work-tags"><span class="tag">Meta Ad</span><span class="tag">Static</span><span class="tag amber">Health</span></div>
       </div>
     </div>
 
     <div class="work-card ad-card" onclick="openLightbox('https://stanby23.github.io/tristanreyes.github.io/saas-meta-ad.png')">
-      <div class="work-thumb" style="height:auto;padding:0;overflow:hidden">
-        <img src="https://stanby23.github.io/tristanreyes.github.io/saas-meta-ad.png" alt="SaaS Meta Ad" style="width:100%;height:auto;display:block"/>
-      </div>
+      <div style="overflow:hidden"><img src="https://stanby23.github.io/tristanreyes.github.io/saas-meta-ad.png" alt="SaaS Meta Ad" style="width:100%;height:auto;display:block"/></div>
       <div class="work-info">
         <div class="work-title">DataFlow — SaaS Ad</div>
-        <div class="work-desc">A clean, data-driven static ad for a SaaS analytics platform. Light layout, product mockup, and a clear free trial CTA.</div>
-        <div class="work-tags">
-          <span class="tag">Meta Ad</span><span class="tag">Static</span><span class="tag amber">SaaS</span>
-        </div>
+        <div class="work-desc">Clean, data-driven static ad for a SaaS analytics platform with a clear free trial CTA.</div>
+        <div class="work-tags"><span class="tag">Meta Ad</span><span class="tag">Static</span><span class="tag amber">SaaS</span></div>
       </div>
     </div>
 
@@ -288,15 +247,13 @@ footer span{color:var(--teal)}
 
 <!-- POSTERS -->
 <section id="posters">
-  <div class="section-label">// 05 — posters & graphics</div>
+  <div class="section-label">// 04 — posters & graphics</div>
   <h2 class="section-title">Print & Visual Design</h2>
   <p style="color:var(--muted);margin-top:-2rem;margin-bottom:2.5rem;font-size:0.95rem">Posters, event graphics, and visual design work. Click any piece to view full size.</p>
   <div class="work-grid">
 
     <div class="work-card ad-card" onclick="openLightbox('https://stanby23.github.io/tristanreyes.github.io/tokyobites.png')">
-      <div class="work-thumb" style="height:auto;padding:0;overflow:hidden">
-        <img src="https://stanby23.github.io/tristanreyes.github.io/tokyobites.png" alt="Tokyo Bites Pop-Up Poster" style="width:100%;height:auto;display:block"/>
-      </div>
+      <div style="overflow:hidden"><img src="https://stanby23.github.io/tristanreyes.github.io/tokyobites.png" alt="Tokyo Bites Pop-Up Poster" style="width:100%;height:auto;display:block"/></div>
       <div class="work-info">
         <div class="work-title">Tokyo Bites Pop-Up</div>
         <div class="work-desc">Event poster for a Japanese food pop-up. Brush-style typography, cherry blossom accents, and a clean product-forward layout.</div>
@@ -305,10 +262,7 @@ footer span{color:var(--teal)}
     </div>
 
     <div class="work-card" style="opacity:.6">
-      <div class="work-thumb t3" style="flex-direction:column;gap:.5rem">
-        <span class="pixel-art">▲</span>
-        <span style="font-family:var(--mono);font-size:0.65rem;color:var(--amber);letter-spacing:2px">COMING SOON</span>
-      </div>
+      <div class="work-thumb t3"><span class="pixel-art">▲</span><span style="font-family:var(--mono);font-size:0.65rem;color:var(--amber);letter-spacing:2px">COMING SOON</span></div>
       <div class="work-info">
         <div class="work-title">Poster #2</div>
         <div class="work-desc">Upload your poster to GitHub and share the filename — I'll swap this placeholder out immediately.</div>
@@ -317,10 +271,7 @@ footer span{color:var(--teal)}
     </div>
 
     <div class="work-card" style="opacity:.6">
-      <div class="work-thumb t4" style="flex-direction:column;gap:.5rem">
-        <span class="pixel-art">⬡</span>
-        <span style="font-family:var(--mono);font-size:0.65rem;color:var(--teal);letter-spacing:2px">COMING SOON</span>
-      </div>
+      <div class="work-thumb t4"><span class="pixel-art">⬡</span><span style="font-family:var(--mono);font-size:0.65rem;color:var(--teal);letter-spacing:2px">COMING SOON</span></div>
       <div class="work-info">
         <div class="work-title">Poster #3</div>
         <div class="work-desc">Upload your poster to GitHub and share the filename — I'll swap this placeholder out immediately.</div>
@@ -333,31 +284,25 @@ footer span{color:var(--teal)}
 
 <!-- VIDEOS -->
 <section id="videos">
-  <div class="section-label">// 06 — video editing</div>
+  <div class="section-label">// 05 — video editing</div>
   <h2 class="section-title">Motion & Video</h2>
   <p style="color:var(--muted);margin-top:-2rem;margin-bottom:2.5rem;font-size:0.95rem">Video edits, reels, and motion work. Drop a YouTube or Google Drive link and I'll embed it directly.</p>
   <div class="work-grid">
 
     <div class="work-card" style="opacity:.6">
-      <div class="work-thumb t2" style="flex-direction:column;gap:.5rem">
-        <span class="pixel-art" style="font-size:2rem">▶</span>
-        <span style="font-family:var(--mono);font-size:0.65rem;color:var(--teal);letter-spacing:2px">COMING SOON</span>
-      </div>
+      <div class="work-thumb t2"><span class="pixel-art" style="font-size:2rem">▶</span><span style="font-family:var(--mono);font-size:0.65rem;color:var(--teal);letter-spacing:2px">COMING SOON</span></div>
       <div class="work-info">
         <div class="work-title">Video Edit #1</div>
-        <div class="work-desc">Share a YouTube or Google Drive link to your video — I'll embed a thumbnail and playable preview.</div>
+        <div class="work-desc">Share a YouTube or Google Drive link — I'll embed a thumbnail and playable preview.</div>
         <div class="work-tags"><span class="tag">Premiere Pro</span><span class="tag amber">Reel</span></div>
       </div>
     </div>
 
     <div class="work-card" style="opacity:.6">
-      <div class="work-thumb t4" style="flex-direction:column;gap:.5rem">
-        <span class="pixel-art" style="font-size:2rem">▶</span>
-        <span style="font-family:var(--mono);font-size:0.65rem;color:var(--amber);letter-spacing:2px">COMING SOON</span>
-      </div>
+      <div class="work-thumb t4"><span class="pixel-art" style="font-size:2rem">▶</span><span style="font-family:var(--mono);font-size:0.65rem;color:var(--amber);letter-spacing:2px">COMING SOON</span></div>
       <div class="work-info">
         <div class="work-title">Video Edit #2</div>
-        <div class="work-desc">Share a YouTube or Google Drive link to your video — I'll embed a thumbnail and playable preview.</div>
+        <div class="work-desc">Share a YouTube or Google Drive link — I'll embed a thumbnail and playable preview.</div>
         <div class="work-tags"><span class="tag">After Effects</span><span class="tag amber">Motion</span></div>
       </div>
     </div>
@@ -367,39 +312,31 @@ footer span{color:var(--teal)}
 
 <!-- SKILLS -->
 <section id="skills">
-  <div class="section-label">// 04 — skills</div>
+  <div class="section-label">// 06 — skills</div>
   <h2 class="section-title">What I work with</h2>
   <div class="skills-grid">
     <div class="skill-group">
       <div class="skill-group-title">Design</div>
-      <div class="skill-chips">
-        <span class="chip">Figma</span><span class="chip">Adobe XD</span><span class="chip">UI/UX</span><span class="chip">Wireframing</span>
-      </div>
+      <div class="skill-chips"><span class="chip">Figma</span><span class="chip">Adobe XD</span><span class="chip">UI/UX</span><span class="chip">Wireframing</span></div>
     </div>
     <div class="skill-group">
       <div class="skill-group-title">Visual</div>
-      <div class="skill-chips">
-        <span class="chip">Photoshop</span><span class="chip">Illustrator</span><span class="chip">Procreate</span><span class="chip">Canva</span>
-      </div>
+      <div class="skill-chips"><span class="chip">Photoshop</span><span class="chip">Illustrator</span><span class="chip">Procreate</span><span class="chip">Canva</span></div>
     </div>
     <div class="skill-group">
       <div class="skill-group-title">Motion</div>
-      <div class="skill-chips">
-        <span class="chip">After Effects</span><span class="chip">Premiere Pro</span><span class="chip">Kinetic Type</span>
-      </div>
+      <div class="skill-chips"><span class="chip">After Effects</span><span class="chip">Premiere Pro</span><span class="chip">Kinetic Type</span></div>
     </div>
     <div class="skill-group">
       <div class="skill-group-title">Other</div>
-      <div class="skill-chips">
-        <span class="chip">Content Creation</span><span class="chip">Admin</span><span class="chip">Data Entry</span>
-      </div>
+      <div class="skill-chips"><span class="chip">Content Creation</span><span class="chip">Admin</span><span class="chip">Data Entry</span></div>
     </div>
   </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
-  <div class="section-label">// 05 — contact</div>
+  <div class="section-label">// 07 — contact</div>
   <h2 class="section-title">Let's work together</h2>
   <div class="contact-inner">
     <p style="color:var(--muted);max-width:520px;margin:0 auto">Available for junior roles in multimedia design, graphic design, UI/UX, and creative support — remote or local. I reply fast and bring good energy to every project.</p>
@@ -418,18 +355,15 @@ footer span{color:var(--teal)}
 
 <script>
 function openLightbox(src){
-  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox-img').src=src;
   document.getElementById('lightbox').classList.add('active');
-  document.body.style.overflow = 'hidden';
+  document.body.style.overflow='hidden';
 }
 function closeLightbox(){
   document.getElementById('lightbox').classList.remove('active');
-  document.body.style.overflow = '';
+  document.body.style.overflow='';
 }
-document.addEventListener('keydown', function(e){
-  if(e.key === 'Escape') closeLightbox();
-});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLightbox()});
 </script>
-
 </body>
 </html>
